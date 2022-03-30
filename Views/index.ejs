@@ -1,13 +1,19 @@
 <%- include ("partials/header") %> 
 
-<h1>Weather</h1>
-<p>Search a city you wish to see the weather for.</p>
+<h1 class="title">myWeather</h1>
+<p class="description">Search a city you wish to see the weather for.</p>
 
-<form action="/" method="post">
-    <input type="text" name="weatherSearch" id="">
-    <button type="submit" name="weatherSubmit">Search</button>
+<form action="/" method="post" class="weather-search">
+    <div class="search-pair">
+        <input type="text" name="weatherSearch" class="search-input">
+        <button class="submit-btn" type="submit" name="weatherSubmit">Search</button>
+    </div>
+    
 </form>
 
+<div class="weather-result">
+
+</div>
 
 
 <%- include ("partials/footer") %> 

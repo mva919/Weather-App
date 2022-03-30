@@ -1,6 +1,65 @@
+:root {
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --main-font: 'Montserrat', sans-serif;
+}
+
 body {
     background-color: #EFFFFD;
     margin: 0;
     padding: 0;
+    text-align: center;
+    height: 100vh;
+    font-family: var(--main-font);
+    position: relative;
 }
 
+
+.title {
+    font-family: 'Fredoka One', cursive;
+    margin: 0;
+    padding: 1rem;
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+}
+
+.description {
+    margin: 1rem auto;
+    width: 50%;
+}
+
+
+/* --------- Search form ----------*/
+.weather-search {
+    display: flex;
+    justify-content: center;
+}
+
+/* Search button */
+.submit-btn {
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: var(--shadow);
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    margin: 1rem auto;
+}
+
+/* input field */
+.search-input {
+    border: none;
+    border-radius: 0.2rem;
+    box-shadow: var(--shadow);
+    margin: 0.5rem auto;
+    padding: 0.5rem 1rem;
+}
+
+/* --------- Footer --------------*/
+.footer {
+    background-color: grey;
+    padding: 3rem;
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    bottom: 0;
+    justify-content: center;
+}
