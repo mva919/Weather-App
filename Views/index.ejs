@@ -12,9 +12,17 @@
 
 <p class="error-status"> <%= status %> </p>
 
-<div class="weather-result">
-    <h3 class="city-name"> <%= cityName %> </h3>
-    <p class="temperature">  <%= temperature %></p>
+<div class="weather-card-container">
+    <div class="weather-card">
+        <p class="city-name"> <%= cityName %> </p>
+        <h3 class="temperature">  <%= temperature %> </h3>
+        <p class="weather-description"> <%= weatherDescription %> </p>
+        <p class="temperature-max"><%= temperatureMax %> </p>
+        <p class="temperature-min"><%= temperatureMin %> </p>
+        <p class="wind-speed">  <%= windSpeed %> </p>
+    </div>
+    
+
 </div>
 
 

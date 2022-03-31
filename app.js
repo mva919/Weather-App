@@ -14,10 +14,20 @@ app.use(express.static("public"));
 
 let searchCityName = "";
 let temperature = "";
+let weatherDescription = "";
+let temperatureMax = "";
+let temperatureMin = "";
+let windSpeed = "";
 let status = "";
 
 app.get("/", (req, res) => {
-    res.render("index", {cityName: searchCityName, status: status, temperature: temperature});
+    res.render("index", {cityName: searchCityName, 
+                        status: status, 
+                        temperature: temperature, 
+                        weatherDescription: weatherDescription,
+                        temperatureMax: temperatureMax,
+                        temperatureMin: temperatureMin,
+                        windSpeed: windSpeed});
 });
 
 //user searches for the city weather
@@ -46,7 +56,11 @@ app.post("/", (req, res) => {
     
                 console.log(weatherDataFiltered);
                 searchCityName = weatherDataFiltered.cityName;
-                temperature = weatherDataFiltered.temperature;
+                temperature = Math.floor(weatherDataFiltered.temperature) + " °F";
+                weatherDescription = weatherDataFiltered.weatherDescription;
+                temperatureMax = "H: " + Math.floor(weatherDataFiltered.tempMax) + " °F";
+                temperatureMin = "L: " + Math.floor(weatherDataFiltered.tempMin) + " °F";
+                windSpeed = Math.floor(weatherDataFiltered.windSpeed) + " mph";
                 status = "";
                 res.redirect("/");
             });            
