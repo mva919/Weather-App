@@ -6,7 +6,7 @@
 <form action="/" method="post" class="weather-search">
     <div class="search-pair">
         <input type="text" name="weatherSearch" class="search-input">
-        <button class="submit-btn" type="submit" name="weatherSubmit">Search</button>
+        <button class="submit-btn" type="submit" name="weatherSubmit"> <i class="search fa-solid fa-magnifying-glass"> </i></button>
     </div>
 </form>
 
@@ -16,13 +16,11 @@
     <div class="weather-card">
         <p class="city-name"> <%= cityName %> </p>
         <h3 class="temperature">  <%= temperature %> </h3>
-        <p class="weather-description"> <%= weatherDescription %> </p>
+        <p class="weather-description"><i class="fa-solid fa-cloud cloud"></i> <%= weatherDescription %> </p>
         <p class="temperature-max"><%= temperatureMax %> </p>
         <p class="temperature-min"><%= temperatureMin %> </p>
-        <p class="wind-speed">  <%= windSpeed %> </p>
+        <p class="wind-speed">  <i class="fa-solid fa-wind"></i> <%= windSpeed %> </p>
     </div>
-    
-
 </div>
 
 

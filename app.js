@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const https = require("https");
 const { redirect } = require("express/lib/response");
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
 
 const app = express();
 
@@ -62,6 +64,8 @@ app.post("/", (req, res) => {
                 temperatureMin = "L: " + Math.floor(weatherDataFiltered.tempMin) + " °F";
                 windSpeed = Math.floor(weatherDataFiltered.windSpeed) + " mph";
                 status = "";
+                //TODO: Install jsDom and use it to change the visibility of the element when a search is given
+                //document.querySelector(".card-container").style.visibility = "visible";
                 res.redirect("/");
             });            
         }

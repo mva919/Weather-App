@@ -2,6 +2,7 @@
     --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --main-font: 'Montserrat', sans-serif;
+    --blue-700: #1d4ed8; 
 }
 
 body {
@@ -32,15 +33,16 @@ nav {
 }
 
 .nav-item a{
+    color: var(--blue-700);
     margin: 1rem;
     text-decoration: none;
 }
 
 .title {
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Manrope', sans-serif;
     margin: 0;
     padding: 1rem;
-    font-size: 3rem;
+    font-size: 4.5rem;
     letter-spacing: 0.2rem;
 }
 
@@ -58,21 +60,28 @@ nav {
 
 /* Search button */
 .submit-btn {
+    background-color: var(--blue-700);
     border: none;
-    border-radius: 0.25rem;
+    border-radius: 0 0.25rem 0.25rem 0;
     box-shadow: var(--shadow);
     padding: 0.5rem 1.5rem;
     font-weight: 500;
-    margin: 1rem auto;
+    margin: 1rem 0;
+    transform: translate(-0.3rem);
+}
+
+.submit-btn .search {
+    color: white;
 }
 
 /* input field */
 .search-input {
     border: none;
-    border-radius: 0.2rem;
+    border-radius: 0.25rem 0 0 0.25rem;
     box-shadow: var(--shadow);
-    margin: 0.5rem auto;
-    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    width: 15rem;
 }
 
 /* Error message for invalid input */
@@ -85,14 +94,16 @@ nav {
 
 .weather-card-container {
     position: relative;
+   
 }
-
 /* Weather Card */
 .weather-card {
-    background-color: red;
+    background-color: var(--blue-700);
     border-radius: 1rem;
+    color: white;
     display: inline-flex;
     flex-direction: column;
+    margin: 2rem auto;
     width: 15rem;
     align-items: center;
     padding: 2rem 1rem;
@@ -112,6 +123,9 @@ nav {
    margin: 1rem 0;
 }
 
+.cloud {
+    margin: 0.1rem 0.7rem;
+}
 .weather-description {
     display: inline-flex;
 }
@@ -119,11 +133,57 @@ nav {
 
 /* --------- Footer --------------*/
 .footer {
-    background-color: grey;
-    position: absolute;
+    color: white;
+    background-color: var(--blue-700)   ;
+    position: relative;
     padding: 1rem 0;
     display: flex;
+    flex-direction: column;
     width: 100vw;
     bottom: 0;
-    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.footer-links-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 1rem;
+}
+
+.footer-link{
+    color: white;
+    padding: 0 1rem;
+}
+
+
+/*  -----------How it works page ---------------- */
+.work-description {
+    margin: 2rem auto;
+    width: 40%;
+    line-height: 2;
+}
+
+.work-description .work-icon {
+    color: var(--blue-700);
+    font-size: 4rem;
+    margin: 1rem auto;
+}
+
+
+/* Screen Sizes */
+
+@media (max-width: 580px) {
+    
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .search-input{
+        width: 9rem;
+    }
+
+    .work-description {
+        width: 80%;
+    }
 }
