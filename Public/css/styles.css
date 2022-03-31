@@ -13,6 +13,27 @@ body {
     position: relative;
 }
 
+/* ------ Navigation ----------*/
+nav {
+    display: relative;
+}
+
+.navbar {
+    display: relative;
+    padding: 0.5rem 1rem;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    justify-content: end;
+    right: 3rem;
+}
+
+.nav-item a{
+    margin: 1rem;
+    text-decoration: none;
+}
 
 .title {
     font-family: 'Fredoka One', cursive;
@@ -53,11 +74,17 @@ body {
     padding: 0.5rem 1rem;
 }
 
+/* Error message for invalid input */
+.error-status {
+    color: red;
+    margin: 0.5rem auto 2rem;
+}
+
 /* --------- Footer --------------*/
 .footer {
     background-color: grey;
-    padding: 3rem;
     position: absolute;
+    padding: 1rem 0;
     display: flex;
     width: 100vw;
     bottom: 0;

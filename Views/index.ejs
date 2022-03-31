@@ -8,11 +8,13 @@
         <input type="text" name="weatherSearch" class="search-input">
         <button class="submit-btn" type="submit" name="weatherSubmit">Search</button>
     </div>
-    
 </form>
 
-<div class="weather-result">
+<p class="error-status"> <%= status %> </p>
 
+<div class="weather-result">
+    <h3 class="city-name"> <%= cityName %> </h3>
+    <p class="temperature">  <%= temperature %></p>
 </div>
 
 

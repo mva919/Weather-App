@@ -12,11 +12,12 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
-//array to store all the weather cards
-const weatherCards = [];
+let searchCityName = "";
+let temperature = "";
+let status = "";
 
 app.get("/", (req, res) => {
-    res.render("index")
+    res.render("index", {cityName: searchCityName, status: status, temperature: temperature});
 });
 
 //user searches for the city weather
@@ -28,31 +29,39 @@ app.post("/", (req, res) => {
     const query = endpoint+"?q="+location+"&appid="+apiKey+"&units="+units;
 
     https.get(query, (response) => {
-        console.log(res.statusCode);
+        console.log(response.statusCode);
 
-        res.on("data", (data) => {
-            const weatherData = JSON.parse(data);
-            weatherDataFiltered = {
-                cityName: weatherData.name,
-                temperature: weatherData.main.temp,
-                tempMax: weatherData.main.temp_max,
-                tempMin: weatherData.main.temp_min,
-                weather: weatherData.weather[0].main,
-                weatherDescription: weatherData.weather[0].description,
-                windSpeed: weatherData.wind.speed
-            };
-
-            console.log(weatherDataFiltered);
-            weatherCards.push(weatherDataFiltered);
-            
-        });
+        if(response.statusCode === 200){
+            response.on("data", (data) => {
+                const weatherData = JSON.parse(data);
+                const weatherDataFiltered = {
+                    cityName: weatherData.name,
+                    temperature: weatherData.main.temp,
+                    tempMax: weatherData.main.temp_max,
+                    tempMin: weatherData.main.temp_min,
+                    weather: weatherData.weather[0].main,
+                    weatherDescription: weatherData.weather[0].description,
+                    windSpeed: weatherData.wind.speed
+                };
+    
+                console.log(weatherDataFiltered);
+                searchCityName = weatherDataFiltered.cityName;
+                temperature = weatherDataFiltered.temperature;
+                status = "";
+                res.redirect("/");
+            });            
+        }
+        //if invalid city is given
+        else {
+            status = "Invalid city name, please try again.";
+            res.redirect("/");
+        }
     });
-
-    res.redirect("/weather");
 });
 
-app.get("/weather", (req, res) => {
-    res.render("weather", {cityName: weatherCards[0].cityName});
+// how it works page
+app.get("/how-it-works", (req, res) => {
+    res.render("how-it-works");
 });
 
 app.listen(3000, () => {
