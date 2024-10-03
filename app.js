@@ -5,8 +5,10 @@ const https = require("https");
 const { redirect } = require("express/lib/response");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
+const dotenv = require("dotenv");
 
 const app = express();
+dotenv.config();
 
 //setting ejs as view engine
 app.set("view engine", "ejs");
@@ -35,7 +37,7 @@ app.get("/", (req, res) => {
 //user searches for the city weather
 app.post("/", (req, res) => {
     const endpoint = "https://api.openweathermap.org/data/2.5/weather";
-    const apiKey = "07b4338e7bd390d62cd3a1aeb04c3366";
+    const apiKey = process.env.API_KEY;
     const units = "imperial";
     const location = req.body.weatherSearch;
     const query = endpoint+"?q="+location+"&appid="+apiKey+"&units="+units;
@@ -83,9 +85,6 @@ app.get("/how-it-works", (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log("Listening on port 3000 ...");
+    console.log("Listening on port 3000...\nhttp://localhost:3000/");
 });
-
-//API Key
-//07b4338e7bd390d62cd3a1aeb04c3366
 
